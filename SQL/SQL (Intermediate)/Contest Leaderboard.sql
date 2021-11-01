@@ -4,5 +4,5 @@ FROM    Hackers h, (SELECT MAX(s.score) max_score, s.hacker_id
                     GROUP BY s.challenge_id, s.hacker_id) s
 WHERE h.hacker_id = s.hacker_id
 GROUP BY h.hacker_id, h.name 
-HAVING SUM(s.max_score)> 0
+HAVING SUM(s.max_score) > 0
 ORDER BY SUM(s.max_score) DESC, h.hacker_id;
